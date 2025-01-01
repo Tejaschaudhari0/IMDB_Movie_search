@@ -1,5 +1,5 @@
 
-let api = "http://www.omdbapi.com/?i=tt3896198&apikey=47f2b163&t="
+let api = "https://www.omdbapi.com/?i=tt3896198&apikey=47f2b163&t="
 
 let title = document.getElementById('title');
 let director = document.getElementById('director');
