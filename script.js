@@ -14,11 +14,24 @@ let collection = document.getElementById('collection');
 let desc = document.getElementById('desc');
 let poster = document.getElementById('Poster');
 let container = document.querySelector('.container');
+let loadingIndicator = document.getElementById('loading');
 
-// Hide the container initially
+// Hide the movie details initially
 document.addEventListener("DOMContentLoaded", () => {
     container.style.display = "none";
 });
+
+// Function to show the loading indicator
+function showLoading() {
+    loadingIndicator.style.display = "block";
+    container.style.display = "none";  // Hide the movie details during loading
+}
+
+// Function to hide the loading indicator and show the results
+function hideLoading() {
+    loadingIndicator.style.display = "none";
+    container.style.display = "flex";  // Show the movie details container
+}
 
 function searchMovie() {
     let movieName = document.getElementById('movieName').value.trim();
@@ -29,6 +42,8 @@ function searchMovie() {
     }
 
     let query = api + encodeURIComponent(movieName); // Properly encode the movie name for the query
+
+    showLoading();  // Show loading indicator before starting the fetch
 
     fetch(query)
         .then((response) => {
@@ -61,11 +76,11 @@ function searchMovie() {
             desc.innerText = data.Plot || "N/A";
             poster.src = data.Poster || "https://via.placeholder.com/300x430?text=No+Image";
 
-            // Show the container
-            container.style.display = "flex";
+            hideLoading();  // Hide the loading indicator and show the results
         })
         .catch((error) => {
             console.error("Error fetching movie data:", error);
             alert("Something went wrong. Please try again later.");
+            hideLoading();  // Hide loading indicator in case of an error
         });
 }
