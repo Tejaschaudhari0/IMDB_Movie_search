@@ -1,4 +1,3 @@
-
 let api = "https://www.omdbapi.com/?i=tt3896198&apikey=47f2b163&t="
 
 let title = document.getElementById('title');
@@ -34,11 +33,13 @@ function searchMovie() {
     fetch(query)
         .then((response) => {
             if (!response.ok) {
+                console.error('Failed to fetch data:', response.statusText);
                 throw new Error("Network response was not ok");
             }
             return response.json();
         })
         .then((data) => {
+            console.log('Received data:', data); // Log the data for debugging
             if (data.Response === "False") {
                 alert("Movie not found! Please try another name.");
                 container.style.display = "none"; // Hide the container if the movie is not found
@@ -68,5 +69,3 @@ function searchMovie() {
             alert("Something went wrong. Please try again later.");
         });
 }
-
-
