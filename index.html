@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies Search</title>
+
+    <!-- Favicons for different devices and screen resolutions -->
+    <link rel="icon" href="My-logo.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="My-logo.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="My-logo.png" sizes="64x64" type="image/png">
+    <link rel="icon" href="My-logo.png" sizes="192x192" type="image/png">
+    <link rel="apple-touch-icon" href="My-logo.png" sizes="180x180">
+
+    <link rel="stylesheet" href="style.css">
+
+    
+</head>
+
+<body>
+    <div class="main">
+        <div class="search">
+            <input type="text" id="movieName" class="search-input" placeholder="Find the details of a Movie..." autocomplete="off">
+            <button class="btn" onclick="searchMovie()">Search Movies</button>
+        </div>
+
+        <div class="container">
+            <div class="content">
+                <h2 id="title"></h2>
+                <p>Director: <span id="director"></span></p>
+                <p>Actors: <span id="actors"></span></p>
+                <p>Released on: <span id="date"></span></p>
+                <p>IMDB Ratings: <span id="ratings"></span></p>
+                <p>Language: <span id="language"></span></p>
+                <p>Country: <span id="country"></span></p>
+                <p>Awards: <span id="awards"></span></p>
+                <p>Writer: <span id="writer"></span></p>
+                <p>Genre: <span id="genre"></span></p>
+                <p>Box office Collection: <span id="collection"></span></p>
+                <p>Description: <span id="desc"></span></p>
+            </div>
+            <img id="Poster" class="poster" src="">
+        </div>
+    </div>
+
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
